@@ -16,7 +16,7 @@ import os, dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: dont delete .env and put in secrets directly in production!
+# SECURITY WARNING: don't delete .env and put in secrets directly in production!
 project_folder = os.path.expanduser(BASE_DIR)
 dotenv.load_dotenv(os.path.join(project_folder, '.env'))
 def getdotenv(secret):
@@ -31,7 +31,9 @@ SECRET_KEY = getdotenv("KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'replbook.repl.co'
+]
 
 
 # Application definition
@@ -43,6 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party
+
+    # Replbook apps
+    'users',
+    'feed',
 ]
 
 MIDDLEWARE = [
